@@ -1,0 +1,16 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.xdv
+auto/
+photos/
+photo.*
+submitted/
+dist/
+*.tar.bz2
+*.synctex.gz
+resume-en.pdf
+resume-zh.pdf
+.idea/

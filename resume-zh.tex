@@ -1,0 +1,354 @@
+%%
+%% Copyright (c) 2018-2019 Weitian LI <wt@liwt.net>
+%% CC BY 4.0 License
+%%
+%% Created: 2018-04-11
+%%
+
+% Chinese version
+\documentclass[zh]{resume}
+
+% Adjust icon size (default: same size as the text)
+% \iconsize{\Large}
+
+% File information shown at the footer of the last page
+\fileinfo{%
+  \faCopyright{} 2018--2020, SUN Kai \hspace{0.5em}
+  \creativecommons{by}{4.0} \hspace{0.5em}
+  \githublink{Auto-SK}{Resume} \hspace{0.5em}
+  \faEdit{} \today
+}
+
+\name{凯}{孙}
+
+% \keywords{BSD, Linux, Programming, Python, C, Shell, DevOps, SysAdmin}
+
+% \tagline{\icon{\faBinoculars}} <position-to-look-for>}
+% \tagline{<current-position>}
+
+\photo{2.5cm}{pics/avatar.jpg}
+
+\profile{
+  \mobile{+86 18616366601}
+  \email{sunkai@codingcat.cc}
+  \github{Auto-SK} \\
+  \university{上海科技大学}
+% \degree{电子科学与技术 \textbullet 硕士}
+  \birthday{1996-03-23}
+  \address{上海 \textbullet 浦东新区}
+  \iconlink{\faLink}{https://codingcat.cc}{https://codingcat.cc}
+  % Custom information:
+  % \icontext{<icon>}{<text>}
+  % \iconlink{<icon>}{<link>}{<text>}
+}
+
+\begin{document}
+\makeheader
+
+%======================================================================
+% Summary & Objectives
+%======================================================================
+%{\onehalfspacing\hspace{2em}%
+%物理学专业（射电天文方向）直博研究生，有扎实的物理、数学与统计学基础，
+%擅长数据建模与分析，热衷计算机和网络技术，
+%有 10 年的 Linux 和 BSD 使用经验，熟练掌握 Shell、Python 和 C 语言编程。
+%积极实践自由开源精神，
+%在 \link{https://github.com/liweitianux}{GitHub} 上分享多个项目，
+%是 \link{https://www.dragonflybsd.org}{DragonFly BSD} 操作系统的开发者，
+%并积极参与其他多个开源项目。
+%\par}
+
+%======================================================================
+\sectionTitle{教育背景}{\faGraduationCap}
+%======================================================================
+\begin{educations}
+    \education%
+    {2019.08}%
+    {上海科技大学}%
+    {信息科学与技术学院}%
+    {电子科学与技术}%
+    {硕士}
+
+    \separator{0.5ex}
+    \education%
+    {2015.08}%
+    [2019.06]%
+    {西安理工大学}%
+    {自动化与信息工程学院}%
+    {自动化}%
+    {学士}
+\end{educations}
+
+%======================================================================
+\sectionTitle{技能和语言}{\faWrench}
+%======================================================================
+\begin{competences}
+    \comptence{专业技能}{
+        软件开发，建模仿真，硬件电路设计，FPGA 开发
+    }
+    \comptence{\icon{\faCode} 编程}{%
+        \icon{\faPython} \textbf{Python}, \textbf{C/C++}, C\#, MATLAB, Verilog HDL, \LaTeX, 汇编语言
+    }
+    \comptence{\icon{\faTools} 工具}{%
+        \icon{\faGitAlt} \textbf{Git}, SSH, \textbf{PyCharm}, Visual Studio, \textbf{Visual Studio Code}, Typora, CodeBlocks, VIM
+    }
+    \comptence{}{%
+        \textbf{Altium Designer}, \textbf{Keil}, \textbf{IAR}, Xilinx ISE, Quartus Prime, VMware, Multisim, AutoCAD
+    }
+    \comptence{硬件开发}{%
+        STM32F1xx, STM32F4xx, Kinetis K60, S32K144, STC51, Arduino, Xilinx Spartan-6
+    }
+    \comptence{建模仿真}{%
+        数值计算，有限元分析
+    }
+    %	\comptence{操作系统}{%
+    %		\icon{\faWindows} Windows，
+    %		\icon{\faLinux} Linux，
+    %		\icon{\faApple} Mac
+    %	}
+    \comptence{\icon{\faLanguage} 语言}{
+        英语四级：598，英语六级：443
+    }
+\end{competences}
+
+%======================================================================
+\sectionTitle{竞赛获奖}{\faTrophy}
+%======================================================================
+\begin{awards}
+    \award
+    {国际级}%
+    {
+        \begin{itemize}
+            \item \datedline{2018年美国大学生交叉学科建模竞赛\textbf{二等奖}}{2018 年 04 月}
+        \end{itemize}}
+    \separator{0.5ex}
+    \award
+    {国家级}
+    {
+        \begin{itemize}
+            \item \datedline{2017年全国大学生电子设计竞赛本科组\textbf{全国二等奖} ( \textbf{控制组陕西省第一名} ) }{2017 年 12 月}  %  前 \textbf{5.6\%} 
+            \item \datedline{2017年高教社杯全国大学生数学建模竞赛\textbf{本科组二等奖} ( 前 \textbf{3.4\%} ) }{2017 年 11 月}
+            \item \datedline{第十二届全国大学生“恩智浦”杯智能汽车竞赛全国总决赛\textbf{光电直立组二等奖}}{2017 年 08 月}
+        \end{itemize}
+    }
+    \separator{0.5ex}
+    \award
+    {省部级}
+    {
+        \begin{itemize}
+            \item \datedline{第六届陕西工科五校 ( TI ) 杯校际联赛\textbf{省级二等奖}}{2018 年 06 月}
+            \item \datedline{2017年全国大学生电子设计竞赛陕西赛区\textbf{本科组一等奖}}{2017 年 10 月}
+            \item \datedline{第十二届全国大学生“恩智浦”杯智能汽车竞赛西部赛区\textbf{光电直立组一等奖}}{2017 年 07 月}
+            \item \datedline{第五届陕西工科五校 ( TI ) 杯校际联赛\textbf{省级三等奖}}{2017 年 06 月}
+        \end{itemize}
+    }
+    \separator{0.5ex}
+    \award
+    {校级}
+    {
+        \begin{itemize}
+            \item \datedline{西安理工大学2018年大学生电子设计与技能竞赛\textbf{一等奖}}{2018 年 06 月}
+            \item \datedline{西安理工大学第二十六届大学生课外学术科技竞赛\textbf{特等奖}}{2017 年 12 月}
+            \item \datedline{西安理工大学第二十六届大学生课外学术科技竞赛\textbf{三等奖}}{2017 年 12 月}
+            \item \datedline{西安理工大学2017年“互联网+”大学生创新创业大赛\textbf{一等奖}}{2017 年 10 月}
+                  %		\item \datedline{西安理工大学第二十六届“理奥杯”大学生课外学术科技作品竞赛\textbf{特等奖}}{2017 年 11 月}
+                  %		\item \datedline{西安理工大学第二十六届“理奥杯”大学生课外学术科技作品竞赛\textbf{一等奖}}{2017 年 11 月}
+            \item \datedline{西安理工大学第二十五届大学生课外学术科技竞赛\textbf{一等奖}}{2017 年 05 月}
+                  %		\item \datedline{西安理工大学第二十五届“理奥杯”大学生课外学术科技作品竞赛\textbf{三等奖}}{2016 年 11 月}
+        \end{itemize}
+    }
+
+\end{awards}
+
+%======================================================================
+\sectionTitle{奖励与荣誉}{\faAward}
+%======================================================================
+\begin{awards}
+    \award
+    {国家级}
+    {
+        \begin{itemize}
+            \item \datedline{2016-2017年度国家励志奖学金}{2017 年 12 月}
+            \item \datedline{2015-2016年度国家励志奖学金}{2016 年 11 月}
+        \end{itemize}
+    }
+    \separator{0.5ex}
+    \award
+    {校级}
+    {
+        \begin{itemize}
+            \item \datedline{吴江创新奖学金}{2018 年 10 月}
+            \item \datedline{创新成果一等奖}{2018 年 06 月}
+            \item \datedline{2016-2017年度尚真笃学先进个人}{2017 年 11 月}
+            \item \datedline{2015-2016年度三好学生标兵}{2016 年 11 月}
+            \item \datedline{2015-2016年度优秀团员}{2016 年 05 月}
+        \end{itemize}
+    }
+\end{awards}
+
+%======================================================================
+\sectionTitle{项目经历}{\faListUl}
+%======================================================================
+\begin{experiences}
+    \experience%
+    [2019.08]
+    {现在}%
+    {\textbf{中广核涡流检查数据仿真软件开发}}%
+    [%~~~~ {主要负责文献搜索与整理、数据收集与处理、数学模型建立与求解：}
+        \begin{itemize}
+            \item {数值仿真：对求解对象网格化，使用有限元方法计算；}
+            \item {程序接口：编写计算端和界面端接口，传输两端数据；}
+            \item {界面显示：编写探头仿真界面，参与调试整体软件界面；}
+            \item {版本控制：搭建并维护软件仓库，协调团队资源。}
+        \end{itemize}]
+    [Python, PyQt, Matplotlib, MATLAB, C\#, FEM, Git]
+    \separator{0.5ex}
+
+    %	\experience%
+    %	[2018.03]
+    %	{2018.05}%
+    %	{\textbf{人体反应灵敏度的测试设计与实现}}%
+    %	[%~~~~ {主要负责文献搜索与整理、数据收集与处理、数学模型建立与求解：}
+    %	\begin{itemize}
+    %		\item {数值仿真：对求解对象网格化，使用有限元方法计算；}
+    %		\item {程序接口：编写计算端和界面端接口，传输两端数据；}
+    %		\item {界面显示：编写探头仿真界面，参与调试整体软件界面；}
+    %		\item {版本控制：搭建并维护软件仓库，协调团队资源。}    
+    %	\end{itemize}]
+    %	[Python, PyQt, Matplotlib, MATLAB, C\#, FEM, Git]
+    %	\separator{0.5ex}
+
+    \experience%
+    [2017.12]%
+    {2018.02}%
+    {\textbf{美国大学生交叉学科建模竞赛(E题： 气候变化如何影响地区的不稳定性)}}%
+    [%~~~~ {主要负责文献搜索与整理、数据收集与处理、数学模型建立与求解：}
+        \begin{itemize}
+            \item {文献搜索与整理：在相关数据库搜索文献，阅读文献后对相关文献进行整理；}
+            \item {数据收集与处理：收集相关数据，利用MATLAB、SPSS等软件进行数据处理；}
+            \item {数学模型的建立：建立国家脆弱指数模型与多元线性回归模型；}
+            \item {数学模型的求解：使用SPSS求解上述多元线性回归模型，代入数据验证模型。}
+        \end{itemize}]
+    [MATLAB, SPSS, \LaTeX, 多元线性回归]
+    \separator{0.5ex}
+
+    \experience%
+    [2017.04]%
+    {2017.09}%
+    {\textbf{全国大学生数学建模竞赛(B题：“拍照赚钱”的任务定价)}}%
+    [%~~~~ {主要负责文献搜索与整理、数据收集与处理、数学模型建立与求解、软件算法编写与调试：}
+        \begin{itemize}
+            \item {文献搜索与整理：在相关数据库搜索文献，阅读文献后对相关文献进行整理；}
+            \item {数据收集与处理：绘制热力图和位置分布图，对数据进行聚类分析，得到聚类中心点；}
+            \item {数学模型建立与求解：构造指数模型，建立并求解广义多元回归模型；}
+            \item {软件算法编写与调试：根据约束条件利用多种群遗传算法求解出最优化方案。}
+        \end{itemize}]
+    [MATLAB, 聚类分析, 热力图, 多元回归, 遗传算法]
+    \separator{0.5ex}
+
+    \experience
+    [2017.06]
+    {2017.08}
+    {\textbf{全国大学生电子设计竞赛(B题：滚球控制系统)}}
+    [%~~~~ {主要负责PCB设计与焊接、硬件部分设计与搭建、系统参数调节与整定：}
+        \begin{itemize}
+            \item {PCB设计与焊接：绘制电赛系统板的原理图和PCB图，焊接并调试；}
+            \item {硬件部分设计与搭建：根据赛题要求，与队友合作设计并搭建硬件平台；}
+            \item {系统参数调节与整定：硬件平台搭建完毕后与队友一起调试参数。}
+        \end{itemize}]
+    [Altium Designer, SCH, PCB, 焊接, 调试]
+    \separator{0.5ex}
+
+    \experience
+    [2017.02]
+    {2017.08}
+    {\textbf{全国大学生智能汽车竞赛(光电直立组)}}
+    [%~~~~ {主要负责PCB设计与焊接、硬件部分设计与搭建、系统参数调节与整定：}
+        \begin{itemize}
+            \item {PCB设计与焊接：绘制智能车主控部分、驱动部分、电源模块的原理图与PCB图，焊接并调试；}
+            \item {硬件部分设计与搭建：组装车模、固定摄像头和陀螺仪等传感器；}
+            \item {系统参数调节与整定：车模硬件搭建完毕后与队友一起调试参数。}
+        \end{itemize}]
+    [Altium Designer, SCH, PCB, 焊接, 调试]
+\end{experiences}
+
+%======================================================================
+\sectionTitle{校园经历}{\faUsers}
+%======================================================================
+\begin{table}[!htbp]
+    \begin{tabular}{ll}
+        2017年06月 --- 2018年04月 & 西安理工大学大学生科技协会 \textbf{副主席}     \\
+        %		2017年06月 --- 2018年06月 & 西安理工大学自动化科学与技术协会技术团成员 \\
+        2017年05月 --- 2018年04月 & 西安理工大学工程训练中心创客工坊 \textbf{社长} \\
+        2016年06月 --- 2017年06月 & 西安理工大学自动化科学与技术协会 \textbf{干事} \\
+        2016年06月 --- 2017年05月 & 西安理工大学工程训练中心创客工坊 \textbf{社员} \\
+    \end{tabular}
+\end{table}
+
+%======================================================================
+\sectionTitle{个人总结}{\faHeart}
+%======================================================================
+\begin{table}[!htbp]
+    \begin{tabular}{rl}
+        自学能力较强、喜欢接触新事物、认真、勤奋、团队合作经验丰富
+    \end{tabular}
+\end{table}
+
+%%======================================================================
+%\sectionTitle{计算机技能}{\faCogs}
+%%======================================================================
+%\begin{itemize}
+%	\item DragonFly BSD 操作系统开发者：
+%	200+ 代码提交；内核以及系统工具；
+%	在邮件列表和 IRC 频道交流和回答问题
+%	\item 使用 Ansible 管理 VPS，部署个人域名邮箱、权威 DNS、网站、Git、IRC 等服务
+%	\item 搭建并管理课题组的工作站、计算集群（4 节点）和网络设备
+%	\item 参与配置和测试上海天文台的 SKA 高性能计算集群原型机
+%	（1 管理节点 + 1 存储节点 + 4 计算节点）
+%	\item 设计并开发了\enquote{2014 第一届中国—新西兰联合 SKA 暑期学校}的整个网站
+%	（Django, Bootstrap, jQuery）
+%\end{itemize}
+%
+%%======================================================================
+%\sectionTitle{个人项目}{\faCode}
+%%======================================================================
+%\begin{itemize}
+%  \item \link{https://github.com/liweitianux/atoolbox}{\texttt{atoolbox}}:
+%    (Python, Shell)
+%    多年来累积的各种工具，帮助管理系统、执行常用任务、分析天文数据等
+%  \item \link{https://github.com/liweitianux/dfly-update}{\texttt{dfly-update}}:
+%    (Shell)
+%    DragonFly BSD 系统更新程序
+%  \item \link{https://github.com/liweitianux/openrcs}{\texttt{openrcs}}:
+%    (C)
+%    改进 \texttt{OpenBSD RCS}，使其与 \texttt{GNU RCS} 足够兼容
+%  \item \link{https://github.com/liweitianux/fg21sim}{\texttt{fg21sim}}:
+%    (Python)
+%    模拟低频射电天空图像
+%  \item \link{https://github.com/liweitianux/cdae-eor}{\texttt{cdae-eor}}:
+%    (Python, Keras)
+%    使用卷积去噪自动编码器（CDAE）分离宇宙再电离（EoR）信号
+%  \item \link{https://github.com/liweitianux/chandra-acis-analysis}{\texttt{chandra-acis-analysis}}:
+%    (Python, Shell, Tcl)
+%    X~射线天文观测数据的半自动化分析程序
+%  \item \link{https://github.com/liweitianux/resume}{\texttt{resume}}:
+%    (\LaTeX)
+%    \emph{此简历}的模板和源文件
+%\end{itemize}
+%
+%%======================================================================
+%\sectionTitle{科研成果}{\faAtom}
+%%======================================================================
+%\begin{itemize}
+%  \item 开发低频射电天空图像模拟软件：
+%    \link{https://github.com/liweitianux/fg21sim}{\texttt{FG21sim}}
+%  \item 开发程序实现~X~射线天文观测数据的半自动化分析：
+%    \link{https://github.com/liweitianux/chandra-acis-analysis}{\texttt{chandra-acis-analysis}}
+%  \item 利用卷积去噪自动编码器（CDAE）在频率维度分离微弱的宇宙再电离（EoR）信号
+%  \item 利用卷积神经网络（CNN）对 FIRST 巡天的射电星系图像根据形态特征进行分类
+%  \item 显著改进星系团射电晕的建模，并考虑低频干涉阵列的复杂仪器效应
+%  \item 改进~X~射线光谱拟合的背景成分建模，获到更准确可靠的拟合结果
+%  \item 发表 2 篇第一作者以及 8 篇合作者 SCI 论文
+%\end{itemize}
+
+\end{document}
