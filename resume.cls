@@ -348,11 +348,11 @@
 %  }
 %}
 \newcommand\sectionTitle[2]{
-	\section{
-		\texorpdfstring
-		{\color{accentcolor}#2\enspace \textbf{#1}}
-		{#1}
-	}
+  \section{
+    \texorpdfstring
+    {\color{accentcolor}#2\enspace \textbf{#1}}
+    {#1}
+  }
 }
 
 % Extra array column types
@@ -384,9 +384,9 @@
 %%
 
 \NewDocumentEnvironment{educations}{}{%
-	\begin{tabular}{R{\leftcolwidth} | L{\rightcolwidth}}
-	}{%
-	\end{tabular}
+  \begin{tabular}{R{\leftcolwidth} | L{\rightcolwidth}}
+  }{%
+  \end{tabular}
 }
 
 % \education
@@ -396,14 +396,22 @@
 %   {<department>}  % #4
 %   {<major>}       % #5
 %   {<degree>}      % #6
-\NewDocumentCommand{\education}{m o m m m m}{
-	\ifdef{\@zh}{%
-		\IfValueTF{#2}{#2}{现在} & \textbf{#3} \textbullet #4 \\*
-		#1 & #5 \textbullet #6 \\
-	}{%
-		\IfValueTF{#2}{#2}{Now} & #4, \textbf{#3} \\*
-		#1 & #6 in #5 \\
-	}
+%   [<rank>]        % #7
+%   [<position>]    % #8
+\NewDocumentCommand{\education}{m o m m m m o o}{
+  \ifdef{\@zh}{%
+    \IfValueTF{#2}{#2}{现在} & \textbf{#3} \textbullet #4 \\*
+    #1 & #5 \textbullet #6 \IfValueTF{#7}{\textbullet #7}{}
+    \IfNoValueOrEmptyTF{#8}{\\}{%
+    \\* 
+    & \begin{minipage}[t]{\rightcolwidth}
+      #8
+    \end{minipage} \\
+  }
+  }{%
+    \IfValueTF{#2}{#2}{Now} & #4, \textbf{#3} \\*
+    #1 & #6 in #5 \\
+  }
 }
 
 %%
@@ -493,9 +501,9 @@
 %%
 
 \NewDocumentEnvironment{awards}{}{%
-	\begin{longtable}{R{\leftcolwidth} | L{\rightcolwidth}}
-	}{%
-	\end{longtable}
+  \begin{longtable}{R{\leftcolwidth} | L{\rightcolwidth}}
+  }{%
+  \end{longtable}
 }
 
 % \award
@@ -504,9 +512,9 @@
 %   {<summary>}      % #3
 %   [<description>]  % #4
 \NewDocumentCommand{\award}{m m}{
-	#1 & \begin{minipage}[t]{\rightcolwidth}
-			#2
-		\end{minipage} \\*
+  #1 & \begin{minipage}[t]{\rightcolwidth}
+      #2
+    \end{minipage} \\*
 
 }
 
