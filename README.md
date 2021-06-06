@@ -1,11 +1,13 @@
 My Resume and LaTeX Template
 ============================
 
-**Kai Sun** `<sunkai@codingcat.cc>`
+**Weitian LI** `<wt@liwt.net>` and **SUN Kai** `<sunkai.tech@gmail.com>`
 
 Introduction
 ------------
-This repository holds my [resume](resume-zh+en.pdf) (Chinese and English),
+**This repository is a fork of [liweitianux](https://github.com/liweitianux)'s [resume](https://github.com/liweitianux/resume).**
+
+This repository holds my [resume](resume-zh.pdf) (Chinese version),
 the [resume LaTeX template](resume.cls),
 and the [Font Awesome 5 LaTeX style](fontawesome5/fontawesome5.sty).
 
