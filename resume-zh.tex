@@ -30,8 +30,8 @@
 \profile{
   \mobile{(+86) 18616366601}
   \email{sunkai.tech@gmail.com}
-  \iconlink{\faLink}{https://sunkai.tech}{https://sunkai.tech} \\
-  \university{中科院微系统所}
+  \iconlink{\faBlog}{https://sunkai.tech}{https://sunkai.tech} \\
+  \university{中国科学院大学}
   % \degree{电子科学与技术 \textbullet 硕士}
   \birthday{1996-03-23}
   \address{上海 \textbullet 浦东新区}
@@ -44,99 +44,12 @@
 \begin{document}
 \makeheader
 
-%======================================================================
-% Summary & Objectives
-%======================================================================
-{\onehalfspacing\hspace{2em}%
-    研二，暑假可实习三个月，期望\textbf{软件开发}相关实习岗位。熟悉 Python，了解 C/C\# 等编程语言，具有良好的编程习惯及文档编写能力；会使用 Git、SSH 和 Docker 等开发工具；接触过 MySQL 和 Redis 等数据库；熟练使用 Pycharm 和 Visual Studio 等集成开发环境；会基本的 Linux 操作，有 VPS 使用和个人网站部署经历；有目标检测程序开发和部署经历；有很强的自主学习和解决问题能力，能够高效地进行团队沟通和协作。
-    \par}
+\input{section_summary}
 
-%======================================================================
-\sectionTitle{教育背景}{\faGraduationCap}
-%======================================================================
-\begin{educations}
-    \education%
-    {2019.08}%
-    {中国科学院}%
-    {上海微系统与信息技术研究所}%
-    {电子科学与技术}%
-    {硕士 (保送)}
+\input{section_education}
 
-    \separator{0.5ex}
-    \education%
-    {2015.08}%
-    [2019.06]%
-    {西安理工大学}%
-    {自动化与信息工程学院}%
-    {自动化}%
-    {学士}
-    [前 2\% (2/121)]
-    [英语四级 (598) \textbullet 英语六级(443) \\
-    西安理工大学科技协会\textbf{副主席} \textbullet 西安理工大学创客工坊\textbf{社长}]
-\end{educations}
+\input{section_project}
 
-%======================================================================
-\sectionTitle{奖励荣誉}{\faAward}
-%======================================================================
-\begin{awards}
-    \award
-    {国家级}
-    {
-        \begin{itemize}
-            \item \datedline{美国大学生交叉学科建模竞赛\textbf{二等奖}}{2018 年 04 月}
-            \item \datedline{全国大学生电子设计竞赛\textbf{全国二等奖} (陕西省控制组第一名)}{2017 年 12 月}
-            \item \datedline{全国大学生数学建模竞赛\textbf{全国二等奖} (前 3.4\%)}{2017 年 11 月}
-            \item \datedline{全国大学生智能汽车竞赛\textbf{全国二等奖}}{2017 年 08 月}
-            \item \datedline{国家励志奖学金 $\times$ 2}{2016 年 -- 2017 年}
-        \end{itemize}
-    }
-    \separator{0.5ex}
-    \award
-    {校级}
-    {
-        \begin{itemize}
-            \item \datedline{学业奖学金 $\times$ 2}{2019 年 -- 2020 年}
-            \item \datedline{吴江创新奖学金}{2018 年 10 月}
-            \item \datedline{创新成果一等奖}{2018 年 06 月}
-        \end{itemize}
-    }
-\end{awards}
-
-%======================================================================
-\sectionTitle{项目经历}{\faListUl}
-%======================================================================
-\begin{experiences}
-    \experience%
-    [2019.09]
-    {现在}%
-    {\textbf{软件开发与部署 @ 中广核涡流检测数据仿真软件}}%
-    [
-    使用涡流原理和 FEM 对蒸汽发生管道和探头进行数值仿真，得到不同缺陷的图像和检出概率曲线。
-        \begin{itemize}
-            \item {编写被检对象和探头的 Mesh 程序和 FEM 计算程序，测试正确性并优化；}
-            \item {编写探头阻抗特性数值计算程序，并使用 PyQt5 制作阻抗特性计算界面；}
-            \item {使用 Berens 模型计算 POD，并将结果传输到前端界面；}
-            \item {编写前后端接口文件协议，并与前端界面进行对接；}
-            \item {编写测试方案和测试样例，调试程序并修复漏洞。}
-        \end{itemize}
-    ]
-    [Python, FEM, PyQt, Numpy, Matplotlib, C\#, Git]
-    \separator{0.5ex}
-
-    \experience%
-    [2020.12]
-    {现在}%
-    {\textbf{软件开发与部署 @ 金泽水面漂浮物智能检测系统}}%
-    [
-    训练部署 YOLOv5 模型，对金泽水库取水口和水文站水面漂浮物 (船、水葫芦) 进行实时检测和推送。
-        \begin{itemize}
-            \item {使用 OpenCV 截取 IP 摄像头的 RTSP 视频流，并解决因为带宽引起的丢帧问题；}
-            \item {训练部署 YOLOv5 模型，平均准确度在 0.98 以上，并将其封装为 Detect 类；}
-            \item {使用 Redis 做图片缓存，实时存储模型输出结果，并部署 Flask 服务器进行推送；}
-            \item {将漂浮物信息保存到 Oracle 数据库，并将漂浮物图片保存到本地备份；}
-            \item {采用多进程方式，将任务分为多个独立进程，进程间通过 Pipe 通信。}
-        \end{itemize}]
-    [Python, OpenCV, YOLOv5, Redis, Oracle, Flask, multiprocessing, Git]
-\end{experiences}
+\input{section_award}
 
 \end{document}
