@@ -384,7 +384,7 @@
 %%
 
 \NewDocumentEnvironment{educations}{}{%
-  \begin{tabular}{R{\leftcolwidth} | L{\rightcolwidth}}
+  \begin{tabular}{R{\leftcolwidth} | L{22em} R{20em}}
   }{%
   \end{tabular}
 }
@@ -392,23 +392,18 @@
 % \education
 %   {<start-date>}  % #1
 %   [<end-date>]    % #2
-%   {<school>}      % #3
-%   {<department>}  % #4
-%   {<major>}       % #5
-%   {<degree>}      % #6
+%   {<degree>}      % #3
+%   {<school>}      % #4
+%   {<department>}  % #5
+%   {<major>}       % #6
 %   [<rank>]        % #7
-%   [<position>]    % #8
-\NewDocumentCommand{\education}{m o m m m m o o}{
+\NewDocumentCommand{\education}{m o m m m m o m m}{
   \ifdef{\@zh}{%
-    \IfValueTF{#2}{#2}{现在} & \textbf{#3} \textbullet #4 \\*
-    #1 & #5 \textbullet #6 \IfValueTF{#7}{\textbullet #7}{}
-    \IfNoValueOrEmptyTF{#8}{\\}{%
-    \\* 
-    & \begin{minipage}[t]{\rightcolwidth}
-      #8
-    \end{minipage} \\
+    \IfValueTF{#2}{#2}{现在} & \textbf{#3} & \multirow{3}{*}{\includegraphics[#9]{#8}}\\*
+    #1 & \textbf{#4} \textbullet #5 & \\*
+    {} & #6 \IfValueTF{#7}{#7}{} & \\
   }
-  }{%
+  {%
     \IfValueTF{#2}{#2}{Now} & #4, \textbf{#3} \\*
     #1 & #6 in #5 \\
   }
