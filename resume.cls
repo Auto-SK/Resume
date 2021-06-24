@@ -384,7 +384,7 @@
 %%
 
 \NewDocumentEnvironment{educations}{}{%
-  \begin{tabular}{R{\leftcolwidth} | L{22em} R{20em}}
+  \begin{tabular}{R{\leftcolwidth} | L{33em} R{10em}}
   }{%
   \end{tabular}
 }
