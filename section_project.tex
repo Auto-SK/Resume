@@ -5,7 +5,7 @@
     \experience%
     [2019.09]
     {现在}%
-    {\textbf{软件开发与部署 @ 中广核涡流检测数据仿真软件}}%
+    {\textbf{项目负责人 @ 中广核涡流检测数据仿真软件}}%
     [
     使用涡流原理和 FEM 对蒸汽发生管道和探头进行数值仿真，得到不同缺陷的图像和检出概率曲线。
         \begin{itemize}
@@ -22,15 +22,16 @@
     \experience%
     [2020.12]
     {2021.05}%
-    {\textbf{软件开发与部署 @ 金泽水面漂浮物智能检测系统}}%
+    {\textbf{项目负责人 @ 金泽水面漂浮物智能检测系统}}%
     [
     训练部署 YOLOv5 模型，对金泽水库取水口和水文站水面漂浮物 (船、水葫芦) 进行实时检测和推送。
         \begin{itemize}
             \item {使用 OpenCV 截取 IP 摄像头的 RTSP 视频流，并解决因为带宽引起的丢帧问题；}
             \item {训练部署 YOLOv5 模型，平均准确度在 0.98 以上，并将其封装为 Detect 类；}
+            \item {将 YOLOv5 模型结果输入到 DeepSort 追踪器中，实现实时目标跟踪和计数；}
             \item {使用 Redis 做图片缓存，实时存储模型输出结果，并部署 Flask 服务器进行推送；}
             \item {将漂浮物信息保存到 Oracle 数据库，并将漂浮物图片保存到本地备份；}
             \item {采用多进程方式，将任务分为多个独立进程，进程间通过 Pipe 通信。}
         \end{itemize}]
-    [Python, OpenCV, YOLOv5, Redis, Oracle, Flask, multiprocessing, Git]
+    [Python, OpenCV, YOLOv5, DeepSort, Redis, Oracle, Flask, multiprocessing, Git]
 \end{experiences}
