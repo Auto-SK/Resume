@@ -11,6 +11,7 @@ submitted/
 dist/
 *.tar.bz2
 *.synctex.gz
+*.synctex(busy)
 *.pdf
 .idea/
 fonts/
