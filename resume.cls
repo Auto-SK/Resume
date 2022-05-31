@@ -31,7 +31,7 @@
 \RequirePackage[%
   a4paper,%
   margin=1.5cm,%
-  includefoot,
+  includefoot,%
 ]{geometry}
 \RequirePackage{xparse}
 \RequirePackage{etoolbox}
@@ -62,7 +62,7 @@
 % NOTE: Should be set before hyperref uses it.
 \AtBeginDocument{%
   \hypersetup{%
-    pdfborder={0 0 0},% No border around links
+    pdfborder={0 0 0},  % No border around links
     pdfauthor={%
       \ifdef{\@zh}{%
         \@lastname{} \@firstname%
@@ -93,13 +93,9 @@
 \setmainfont{IBM Plex Serif}
 \setmonofont{IBM Plex Mono}
 
-% Chinese setup
+% Chinese fonts
 \ifdef{\@zh}{
   \setCJKmainfont{Source Han Serif SC}
-  % Redefine '\emph' to bold style
-  % Credit: https://tex.stackexchange.com/a/227644
-  \let\emph\relax  % there's no \RedeclareTextFontCommand
-  \DeclareTextFontCommand{\emph}{\bfseries}
 }{}
 
 % Font Awesome icon aliases
@@ -114,10 +110,11 @@
 \newcommand*{\locationSymbol}{\faMapMarkerAlt}
 \newcommand*{\phoneSymbol}{\faPhone}
 \newcommand*{\universitySymbol}{\faUniversity}
+\newcommand*{\blogSymbol}{\faBlog}
 
 % Color setup
-\ifdef{\@monochrome}%
-  {\definecolor{basecolor}{HTML}{000000}}%
+\ifdef{\@monochrome}
+  {\definecolor{basecolor}{HTML}{000000}}  % black
   {\definecolor{basecolor}{HTML}{1C70D7}}  % blue
 %
 \definecolor{darkGrey}{HTML}{989898}
@@ -289,11 +286,17 @@
 \newcommand*{\github}[1]{%
   \iconlink{\githubSymbol}%
     {https://github.com/#1}%
-    {\texttt{github.com/#1}}%
+    {github.com/#1}%
 }
 % Email address
 \newcommand*{\email}[1]{%
-  \iconlink{\mailSymbol}{mailto:#1}{\texttt{#1}}
+  \iconlink{\mailSymbol}{mailto:#1}{#1}
+}
+% Blog: \blog{<address>}
+\newcommand*{\blog}[1]{%
+    \iconlink{\blogSymbol}%
+    {https://#1}%
+    {https://#1}%
 }
 
 % Render the tagline
@@ -340,18 +343,11 @@
 %%
 
 % Title
-%\newcommand*{\sectionTitle}[2]{%
-%  \section{%
-%    \texorpdfstring%
-%      {\color{accentcolor}{\icon{#2} \textbf{#1}}}%
-%      {#1}%
-%  }
-%}
-\newcommand\sectionTitle[2]{
-  \section{
-    \texorpdfstring
-    {\color{accentcolor}#2\enspace \textbf{#1}}
-    {#1}
+\newcommand\sectionTitle[2]{%
+  \section{%
+    \texorpdfstring%
+    {\color{accentcolor}#2\enspace \textbf{#1}}%
+    {#1}%
   }
 }
 
