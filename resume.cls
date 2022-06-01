@@ -91,6 +91,7 @@
 % Fonts
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont{IBM Plex Serif}
+\setsansfont{IBM Plex Sans}
 \setmonofont{IBM Plex Mono}
 
 % Chinese fonts
@@ -173,12 +174,16 @@
 %%
 
 \newcommand*{\creativecommons}[2]{%
-  \href{http://creativecommons.org/licenses/#1/#2/}%
+  \href{https://creativecommons.org/licenses/#1/#2/}%
     {\faCreativeCommons{} \uppercase{#1} #2}%
 }
 
 \newcommand*{\githublink}[2]{%
-  \href{http://github.com/#1/#2}{\githubSymbol{} #1/#2}%
+  \href{https://github.com/#1/#2}{\githubSymbol{} #1/#2}%
+}
+
+\newcommand*{\bloglink}[2]{%
+    \href{https://#2}{#1}%
 }
 
 \newcommand*{\link}[2]{\textcolor{linkcolor}{\href{#1}{#2}}}
@@ -279,7 +284,7 @@
 % LinkedIn: \linkedin{<username>}
 \newcommand*{\linkedin}[1]{%
   \iconlink{\linkedinSymbol}%
-    {http://www.linkedin.com/in/#1}%
+    {https://www.linkedin.com/in/#1}%
     {linkedin.com/in/#1}%
 }
 % GitHub: \github{<username>}
@@ -392,12 +397,15 @@
 %   {<school>}      % #4
 %   {<department>}  % #5
 %   {<major>}       % #6
-%   [<rank>]        % #7
-\NewDocumentCommand{\education}{m o m m m m o m m}{
+%   [<major-info>]  % #7
+%   [<image>]       % #8
+%   [<image-style>] % #9
+\NewDocumentCommand{\education}{m o m m m m o o o}{
   \ifdef{\@zh}{%
-    \IfValueTF{#2}{#2}{现在} & \textbf{#3} & \multirow{3}{*}{\includegraphics[#9]{#8}}\\*
+    \IfValueTF{#2}{#2}{现在} & \textbf{#3} &
+    \IfValueTF{#8}{\multirow{3}{*}{\includegraphics[#9]{#8}}}{} \\*
     #1 & \textbf{#4} \textbullet #5 & \\*
-    {} & #6 \IfValueTF{#7}{#7}{} & \\
+    & #6 \IfValueTF{#7}{#7}{} & \\
   }
   {%
     \IfValueTF{#2}{#2}{Now} & #4, \textbf{#3} \\*
