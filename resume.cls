@@ -64,21 +64,21 @@
   \hypersetup{%
     pdfborder={0 0 0},  % No border around links
     pdfauthor={%
-      \ifdef{\@zh}{%
-        \@lastname{} \@firstname%
-      }{%
-        \@firstname{} \@lastname%
-      }%
-    },%
+        \ifdef{\@zh}{%
+          \@lastname{} \@firstname%
+        }{%
+          \@firstname{} \@lastname%
+        }%
+      },%
     pdftitle={%
-      \ifdef{\@zh}{%
-        简历 | \@lastname{} \@firstname{}
-        \ifdef{\@tagline}{| \@tagline}{}%
-      }{%
-        Resume | \@firstname{} \@lastname{}
-        \ifdef{\@tagline}{| \@tagline}{}%
-      }%
-    },%
+        \ifdef{\@zh}{%
+          简历 | \@lastname{} \@firstname{}
+          \ifdef{\@tagline}{| \@tagline}{}%
+        }{%
+          Resume | \@firstname{} \@lastname{}
+          \ifdef{\@tagline}{| \@tagline}{}%
+        }%
+      },%
     pdfkeywords={\ifdef{\@keywords}{\@keywords}{}},%
   }%
 }
@@ -97,7 +97,10 @@
 % Chinese fonts
 \ifdef{\@zh}{
   \setCJKmainfont{Source Han Serif SC}
-}{}
+  \newif\ifzh\zhtrue
+}{
+  \newif\ifzh\zhfalse
+}
 
 % Font Awesome icon aliases
 \newcommand*{\birthdaySymbol}{\faBirthdayCake}
@@ -115,8 +118,8 @@
 
 % Color setup
 \ifdef{\@monochrome}
-  {\definecolor{basecolor}{HTML}{000000}}  % black
-  {\definecolor{basecolor}{HTML}{1C70D7}}  % blue
+{\definecolor{basecolor}{HTML}{000000}}  % black
+{\definecolor{basecolor}{HTML}{1C70D7}}  % blue
 %
 \definecolor{darkGrey}{HTML}{989898}
 %
@@ -156,7 +159,7 @@
 \titlespacing{\section}{0em}{1ex}{1ex}  % <left><before><after>
 
 % Configure list via 'enumitem'
-\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=2em}
+\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=1em}
 \setlist[description,1]{style=sameline}
 
 % Width of the left column for date ranges
@@ -164,8 +167,8 @@
 \newlength{\rightcolwidth}
 \ifdef{\@zh}{%
   \setlength{\leftcolwidth}{4.5em}
-}{
-  \setlength{\leftcolwidth}{8.1em}
+}{%
+  \setlength{\leftcolwidth}{5.2em}
 }
 \setlength{\rightcolwidth}{\dimexpr \textwidth - \leftcolwidth - 4\tabcolsep}
 
@@ -175,7 +178,7 @@
 
 \newcommand*{\creativecommons}[2]{%
   \href{https://creativecommons.org/licenses/#1/#2/}%
-    {\faCreativeCommons{} \uppercase{#1} #2}%
+  {\faCreativeCommons{} \uppercase{#1} #2}%
 }
 
 \newcommand*{\githublink}[2]{%
@@ -183,7 +186,7 @@
 }
 
 \newcommand*{\bloglink}[2]{%
-    \href{https://#2}{#1}%
+  \href{https://#2}{#1}%
 }
 
 \newcommand*{\link}[2]{\textcolor{linkcolor}{\href{#1}{#2}}}
@@ -214,12 +217,12 @@
 \newcommand*{\tag}[1]{%
   \tikz[baseline]
   \node[anchor=base,
-        draw=accentcolor!40,
-        rounded corners=0.5ex,
-        inner xsep=0.8ex,
-        inner ysep=0.5ex,
-        text height=1.6ex,
-        text depth=0.4ex]{#1};
+    draw=accentcolor!40,
+    rounded corners=0.5ex,
+    inner xsep=0.8ex,
+    inner ysep=0.5ex,
+    text height=1.6ex,
+    text depth=0.4ex]{#1};
 }
 
 \newcommand*{\tags}[1]{%
@@ -284,14 +287,14 @@
 % LinkedIn: \linkedin{<username>}
 \newcommand*{\linkedin}[1]{%
   \iconlink{\linkedinSymbol}%
-    {https://www.linkedin.com/in/#1}%
-    {linkedin.com/in/#1}%
+  {https://www.linkedin.com/in/#1}%
+  {linkedin.com/in/#1}%
 }
 % GitHub: \github{<username>}
 \newcommand*{\github}[1]{%
   \iconlink{\githubSymbol}%
-    {https://github.com/#1}%
-    {github.com/#1}%
+  {https://github.com/#1}%
+  {github.com/#1}%
 }
 % Email address
 \newcommand*{\email}[1]{%
@@ -299,9 +302,9 @@
 }
 % Blog: \blog{<address>}
 \newcommand*{\blog}[1]{%
-    \iconlink{\blogSymbol}%
-    {https://#1}%
-    {https://#1}%
+  \iconlink{\blogSymbol}%
+  {https://#1}%
+  {https://#1}%
 }
 
 % Render the tagline
@@ -312,27 +315,28 @@
 \newcommand*{\user}[2]{%
   \color{accentcolor}{%
     \ifdef{\@zh}%
-      {{\LARGE\bfseries #2 #1}}%
-      {{\LARGE\bfseries #1 \textsc{#2}}}%
-}}
+    {{\LARGE\bfseries #2 #1}}%
+    {{\LARGE\bfseries #1 \textsc{#2}}}%
+  }
+}
 
 % Define the profile to show in the header
 \newcommand*{\profile}[1]{\def\@profile{#1}}
 
 % Render resume header
 \newcommand*{\makeheader}{
-  \ifdef{\@photodiameter}{
-    \begin{minipage}{\@photodiameter}
-      \tikz\path[fill overzoom image={\@photo}]
-        circle[radius=0.5\linewidth];
-    \end{minipage}
-    \hspace{1em}
-  }{}
-  \ifundef{\@photodiameter}{%
-    \begin{minipage}{\linewidth}
-  }{%
-    \begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
-  }
+\ifdef{\@photodiameter}{
+  \begin{minipage}{\@photodiameter}
+    \tikz\path[fill overzoom image={\@photo}]
+    circle[radius=0.5\linewidth];
+  \end{minipage}
+  \hspace{1em}
+}{}
+\ifundef{\@photodiameter}{%
+  \begin{minipage}{\linewidth}
+}{%
+  \begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
+    }
     \user{\@firstname}{\@lastname}
     \ifdef{\@tagline}{%
       \medskip \\
@@ -353,7 +357,7 @@
     \texorpdfstring%
     {\color{accentcolor}#2\enspace \textbf{#1}}%
     {#1}%
-  }
+   }
 }
 
 % Extra array column types
@@ -364,10 +368,10 @@
 
 % Basic entries listing
 \NewDocumentEnvironment{entries}{o}{%
-  \IfValueTF{#1}%
-    {\begin{tabular}{R{\leftcolwidth} #1 L{\rightcolwidth}}}%
-    {\begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}}%
-}{%
+\IfValueTF{#1}%
+{\begin{tabular}{R{\leftcolwidth} #1 L{\rightcolwidth}}}%
+{\begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}}%
+    }{%
   \end{tabular}
 }
 
@@ -384,11 +388,11 @@
 %% Section: educations
 %%
 
-\NewDocumentEnvironment{educations}{}{%
-  \begin{tabular}{R{\leftcolwidth} | L{33em} R{10em}}
-  }{%
-  \end{tabular}
-}
+\NewDocumentEnvironment{educations}{o}
+{\IfValueTF{#1}{\def\@logo{true}}{}
+\ifdef{\@logo}{\begin{tabular}{R{\leftcolwidth} | L{33em} R{10em}}}
+{\begin{tabular}{R{\leftcolwidth} | L{\rightcolwidth}}}}
+{\end{tabular}}
 
 % \education
 %   {<start-date>}  % #1
@@ -400,16 +404,20 @@
 %   [<major-info>]  % #7
 %   [<image>]       % #8
 %   [<image-style>] % #9
-\NewDocumentCommand{\education}{m o m m m m o o o}{
+\NewDocumentCommand{\education}{m o m m m m o o o}{%
   \ifdef{\@zh}{%
-    \IfValueTF{#2}{#2}{现在} & \textbf{#3} &
-    \IfValueTF{#8}{\multirow{3}{*}{\includegraphics[#9]{#8}}}{} \\*
-    #1 & \textbf{#4} \textbullet #5 & \\*
-    & #6 \IfValueTF{#7}{#7}{} & \\
+    \ifdef{\@logo}{%
+      \IfValueTF{#2}{#2}{现在} & \textbf{#3} & \multirow{3}{*}{\includegraphics[#9]{#8}} \\*
+      #1 & \textbf{#4} \textbullet #5 & \\*
+      & #6 \IfValueTF{#7}{#7}{} & \\
+    }{%
+      \IfValueTF{#2}{#2}{现在} & \textbf{#4} \textbullet #5 \\*
+      #1 & #6 \textbullet #3 \\
+    }
   }
   {%
-    \IfValueTF{#2}{#2}{Now} & #4, \textbf{#3} \\*
-    #1 & #6 in #5 \\
+    \IfValueTF{#2}{#2}{Now} & #5, \textbf{#4} \\*
+    #1 & #3 in #6 \\
   }
 }
 
@@ -419,15 +427,18 @@
 
 % \begin{competences}[width]
 \NewDocumentEnvironment{competences}{o}{%
-  \IfValueTF{#1}{%
-    \begin{tabular}{R{#1} L{\dimexpr \textwidth - #1 - 4\tabcolsep}}
-  }{%
-    \begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}
-  }
+\IfValueTF{#1}{%
+  \begin{tabular}{R{#1} L{\dimexpr \textwidth - #1 - 4\tabcolsep}}
 }{%
+  \begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}
+    }
+    }{%
   \end{tabular}
 }
 
+% \comptence
+%   {<name>}            % #1
+%   {<description>}     % #2
 \NewDocumentCommand{\comptence}{m m}{
   \textbf{#1} & #2 \\
 }
@@ -438,7 +449,7 @@
 
 \NewDocumentEnvironment{projects}{}{%
   \begin{longtable}{R{\leftcolwidth} | L{\rightcolwidth}}
-}{%
+    }{%
   \end{longtable}
 }
 
@@ -472,7 +483,7 @@
 
 \NewDocumentEnvironment{experiences}{}{%
   \begin{longtable}{R{\leftcolwidth} | L{\rightcolwidth}}
-}{%
+    }{%
   \end{longtable}
 }
 
@@ -486,9 +497,9 @@
   #2 & #3 \\*
   \IfValueT{#1}{#1}
   \IfNoValueOrEmptyTF{#4}{}{%
-     & \begin{minipage}[t]{\rightcolwidth}
-         #4
-       \end{minipage} \\*
+    & \begin{minipage}[t]{\rightcolwidth}
+      #4
+    \end{minipage} \\*
   }
   \IfValueT{#5}{%
     & \footnotesize{\tags{#5}} \\
@@ -501,20 +512,17 @@
 
 \NewDocumentEnvironment{awards}{}{%
   \begin{longtable}{R{\leftcolwidth} | L{\rightcolwidth}}
-  }{%
+    }{%
   \end{longtable}
 }
 
 % \award
-%   [<start-date>]   % #1
-%   {<end-date>}     % #2
-%   {<summary>}      % #3
-%   [<description>]  % #4
+%   {<summary>}      % #1
+%   {<description>}  % #2
 \NewDocumentCommand{\award}{m m}{
   #1 & \begin{minipage}[t]{\rightcolwidth}
-      #2
-    \end{minipage} \\*
-
+    #2
+  \end{minipage} \\*
 }
 
 %%
@@ -537,13 +545,13 @@
 
 \NewDocumentEnvironment{skills}{}{%
   \begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}
-}{%
+    }{%
   \end{tabular}
 }
 
 \NewDocumentCommand{\skill}{m m}{
   \textbf{#1} &
-    \foreach \x in {1,...,5}{%
+  \foreach \x in {1,...,5}{%
       \color{accentcolor!80}{%
         \ifnumgreater{\x}{#2}{\faCircleNotched}{\faCircle}
       }
@@ -564,10 +572,10 @@
   \hspace{1em}
   \begin{minipage}[t]{\dimexpr(\linewidth/3) - 3em}
     \begin{tabular}{>{}l >{}l}
-      \multicolumn{2}{l}{\textbf{#1}}\\
-      \multicolumn{2}{l}{\emph{#2}, \textsc{#3}}\\
-      \quad \mailSymbol & \href{mailto:#4}{#4} \\
-      \quad \phoneSymbol & #5 \\
+      \multicolumn{2}{l}{\textbf{#1}}            \\
+      \multicolumn{2}{l}{\emph{#2}, \textsc{#3}} \\
+      \quad \mailSymbol  & \href{mailto:#4}{#4}  \\
+      \quad \phoneSymbol & #5                    \\
     \end{tabular}
   \end{minipage}%
 }

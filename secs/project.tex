@@ -1,13 +1,14 @@
 %======================================================================
-\sectionTitle{项目经历}{\faListUl}
+% Projects
 %======================================================================
+\ifzh
+\sectionTitle{项目经历}{\faListUl}
 \begin{experiences}
     \experience%
     [2019.09]
     {2021.07}%
     {\textbf{软件开发 @ 中广核涡流检测数据仿真软件 (国内首个核电站蒸汽发生管道电磁涡流检测仿真软件)}}%
-    [
-    使用涡流原理和 FEM 对蒸汽发生管道和探头进行数值仿真，获取不同缺陷的图像和检出概率曲线。
+    [使用涡流原理和 FEM 对蒸汽发生管道和探头进行数值仿真，获取不同缺陷的图像和检出概率曲线。
         \begin{itemize}
             \item {编写被检对象和探头的 Mesh 程序和 FEM 计算程序，测试正确性并优化；}
             \item {编写探头阻抗特性数值计算程序，并使用 PyQt5 制作阻抗特性计算界面；}
@@ -15,17 +16,14 @@
             \item {基于 WinForm 框架制作界面，并编写相关的控件、布局、事件以及接口等程序；}
             \item {编写软件文档、接口协议、测试方案和测试样例，调试程序并修复漏洞；}
             \item {搭建并维护软件仓库，部署程序并最终成功发布。}
-        \end{itemize}
-    ]
+        \end{itemize}]
     [Python, ECT, FEM, PyQt, Numpy, Matplotlib, C\#, WinForm, Git]
     \separator{0.5ex}
-
     \experience%
     [2020.12]
     {2021.05}%
     {\textbf{软件开发 @ 金泽水面漂浮物智能检测系统 (``十三五''水体污染控制与治理科技重大专项子项目)}}%
-    [
-    训练部署 YOLOv5 模型，对金泽水库取水口和水文站水面漂浮物 (船、水葫芦) 进行实时检测和推送。
+    [训练部署 YOLOv5 模型，对金泽水库取水口和水文站水面漂浮物 (船、水葫芦) 进行实时检测和推送。
         \begin{itemize}
             \item {使用 OpenCV 截取 IP 摄像头的 RTSP 视频流，并解决因为带宽引起的丢帧问题；}
             \item {训练部署 YOLOv5 模型，平均准确度在 0.98 以上，并将其封装为 Detect 类；}
@@ -36,3 +34,37 @@
         \end{itemize}]
     [Python, OpenCV, YOLOv5, DeepSort, Redis, Oracle, Flask, multiprocessing, Git]
 \end{experiences}
+\else
+\sectionTitle{Projects}{\faListUl}
+\begin{experiences}
+    \experience%
+    [Sept. 2019]
+    {Jul. 2021}%
+    {\textbf{SDE @ CGN eddy current testing data simulation software}}%
+    [Numerical simulation of steam generation pipes and probes using the eddy current principle and FEM to obtain images of different defects and detect probability curves.
+    \begin{itemize}
+        \item {Write Mesh programs and FEM calculation programs for the objects and probes to test correctness and optimize;}
+        \item {Write a numerical calculation program for the impedance characteristics of the probe and use PyQt5 to make the impedance characteristic calculation interface;}
+        \item {Calculate the POD using the Berens model and transfer the results to the front-end interface;}
+        \item {Make an interface based on the WinForm framework, and write related controls, layouts, events, and interfaces;}
+        \item {Write software documentation, interface protocols, test scenarios and test samples, debug programs and fix vulnerabilities;}
+        \item {Build and maintain software repositories, deploy programs, and ultimately successfully release them.}
+    \end{itemize}]
+    [Python, ECT, FEM, PyQt, Numpy, Matplotlib, C\#, WinForm, Git]
+    \separator{0.5ex}
+    \experience%
+    [Dec. 2020]
+    {May. 2021}%
+    {\textbf{SDE @ Jinze water surface floating object intelligent detection system}}%
+    [Train and deploy the YOLOv5 model to detect and push floating debris (boats, water hyacinths) at the kanazawa Reservoir inlet and hydrological station in real time.
+    \begin{itemize}
+        \item {Use OpenCV to intercept RTSP video streams from IP cameras and resolve frame drops caused by bandwidth;}
+        \item {Train and deploy the YOLOv5 model with an average accuracy of 0.98 or more and encapsulate it as a Detect class;}
+        \item {Input YOLOv5 model results into the DeepSort tracker for real-time target tracking and counting;}
+        \item {Use Redis to cache images, save model output in real time, and deploy Flask servers for push;}
+        \item {Save floating object information to Oracle database, deploy Nginx image server for front-end query detection results;}
+        \item {In a multi-process approach, tasks are divided into independent processes, and the processes communicate with each other through Pipes.}
+    \end{itemize}]
+    [Python, OpenCV, YOLOv5, DeepSort, Redis, Oracle, Flask, multiprocessing, Git]
+\end{experiences}
+\fi

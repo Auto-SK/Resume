@@ -1,0 +1,88 @@
+%%
+%% Copyright (c) 2018-2019 Weitian LI <wt@liwt.net>
+%% CC BY 4.0 License
+%%
+%% Résumé
+%% ------
+%% A short document (1-2 pages) to sum up the job-related accomplishments
+%% and experience.
+%%
+%% Checklist
+%% ---------
+%% * Contact Information
+%% * Work History / Experience
+%% * Education
+%% * Skills
+%% * Summary & Objective (optional)
+%% * Hobbies & Interests (optional)
+%%
+%% Credits
+%% -------
+%% * CV vs. Resume: What is the Difference? When to Use Which?
+%%   https://uptowork.com/blog/cv-vs-resume-difference
+%% * How to Make a Resume: A Step-by-Step Guide (+30 Examples)
+%%   https://uptowork.com/blog/how-to-make-a-resume
+%% * Entry-Level Resume: Sample and Complete Guide (+20 Examples)
+%%   https://uptowork.com/blog/entry-level-resume-example
+%%
+%% Created: 2018-04-14
+%%
+
+% English version
+\documentclass{resume}
+
+% Adjust icon size (default: same size as the text)
+%\iconsize{\Large}
+
+% File information shown at the footer of the last page
+\fileinfo{%
+    \faCopyright{} 2020--2022, \bloglink{SUN Kai}{sunkai.tech} \hspace{0.5em}
+    \creativecommons{by}{4.0} \hspace{0.5em}
+    \githublink{Auto-SK}{Resume} \hspace{0.5em}
+    Built with \faHeart{} and \LaTeXe \hspace{0.5em}
+    \faEdit{} \today
+}
+
+\name{Kai}{SUN}
+
+%\keywords{BSD, Linux, Programming, Python, C, Shell, DevOps, SysAdmin}
+
+\tagline{\icon{\faBinoculars} Backend Developer}
+% \tagline{<current-position>}
+
+% \photo{<height>}{<filename>}
+
+\photo{2.5cm}{pics/avatar.jpg}
+
+\profile{
+    \mobile{(+86) 18616366601}
+    \email{sunkai.tech@gmail.com}
+    \blog{sunkai.tech}\\
+    \university{ShanghaiTech University}
+    % \degree{M.S. in EE}
+    \birthday{1996-03-23}
+    \address{Jiangsu}
+    \github{Auto-SK}
+    % Custom information:
+    % \icontext{<icon>}{<text>}
+    % \iconlink{<icon>}{<link>}{<text>}
+}
+
+\begin{document}
+\makeheader
+
+\input{secs/summary}
+
+\input{secs/education}
+
+\input{secs/project}
+
+\input{secs/research}
+
+\input{secs/skill}
+
+\input{secs/award}
+
+\input{secs/campus}
+
+\end{document}
