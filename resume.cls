@@ -392,7 +392,7 @@
 {\IfValueTF{#1}{\def\@logo{true}}{}
 \ifdef{\@logo}{\begin{tabular}{R{\leftcolwidth} | L{33em} R{10em}}}
 {\begin{tabular}{R{\leftcolwidth} | L{\rightcolwidth}}}}
-{\end{tabular}}
+    {\end{tabular}}
 
 % \education
 %   {<start-date>}  % #1
