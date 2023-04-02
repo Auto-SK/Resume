@@ -1,15 +1,14 @@
 My Resume and LaTeX Template
 ============================
+Declaration
+----------
 
-**Weitian LI** `<wt@liwt.net>` and **SUN Kai** `<sunkai.tech@gmail.com>`
+**This repository is a fork of [liweitianux](https://github.com/liweitianux)'s [resume](https://github.com/liweitianux/resume).**
 
 Introduction
 ------------
-**This repository is a fork of [liweitianux](https://github.com/liweitianux)'s [resume](https://github.com/liweitianux/resume).**
-
-This repository holds my [resume](resume-zh.pdf) (Chinese version),
-the [resume LaTeX template](resume.cls),
-and the [Font Awesome 5 LaTeX style](fontawesome5/fontawesome5.sty).
+This repository holds my [resume](resume-zh+en.pdf) (Chinese and English),
+the [resume LaTeX template](resume.cls).
 
 This template is based on the
 [YACC: Another Awesome CV](https://github.com/darwiin/yaac-another-awesome-cv)
@@ -17,26 +16,39 @@ by Christophe Roger, which is further based on the
 [Plasmati Graduate CV](https://www.latextemplates.com/template/plasmati-graduate-cv)
 by Alessandro Plasmati.
 
+This template is also available on
+[Overleaf](https://www.overleaf.com/latex/templates/simple-resume-template-for-new-graduate-ying-jie-sheng-jian-li-mo-ban/hxrntvmmvnqt).
+Welcome to try it and report back.
+
 Usage
 -----
-1. Install XeLaTeX, latexmk, GNU Make, and GhostScript packages;
-2. Install [Font Awesome 5](#font-awesome-5) and
-   other [required fonts](#required-fonts);
-3. Replace `resume-zh.tex` and `resume-en.tex` with your versions;
-4. Compile to PDFs with a simple `make` :-)
+* Linux
 
-**NOTE**:
-The `TEXINPUTS` environment variable is set in the [Makefile](Makefile#L10)
-so that XeLaTeX can find the `resume.cls` template and `fontawesome5.sty`
-package.  If you don't or can't use this `Makefile`, e.g., on Windows,
-then you need to appropriately configure your environment.
+  1. Install XeLaTeX, latexmk, GNU Make, and GhostScript packages;
+  2. Install the [required fonts](#required-fonts);
+  3. Replace `resume-zh.tex` and `resume-en.tex` with your versions;
+  4. Compile to PDFs with a simple `make` :-)
 
-**NOTE**:
-I use Windows only a bit, so I don't have a guide to use this template on
-Windows.  I'm glad to accept suggestions and updates.
+* Windows
+
+  1. Install [MiKTeX](https://miktex.org/);
+  2. Install the [required fonts](#required-fonts);
+  3. Replace `resume-zh.tex` and `resume-en.tex` with your versions;
+  4. Open `resume-*.tex` in TeXWorks, choose `XeLaTeX` to compile,
+     and confirm the prompts to install the missing packages along
+     the run.
 
 Font Awesome 5
 --------------
+**NOTE**:
+The [fontawesome5 package](https://www.ctan.org/pkg/fontawesome5) from CTAN
+is used, which is more advanced and bundles with the font files.
+
+The original [fontawesome5](fontawesome5/) contents are now obsolete but kept
+for reference.
+
+<blockquote>
+
 I wrote a simple tool [`make-fontawesome5.py`](fontawesome5/make-fontawesome5.py),
 which will download the latest icon list from the
 [Font Awesome](https://github.com/FortAwesome/Font-Awesome) project
@@ -48,11 +60,11 @@ package, which can be installed with `pip3 install --user PyYAML`
 or `sudo apt install python3-yaml`.
 
 A pre-generated style file [`fontawesome5.sty`](fontawesome5/fontawesome5.sty)
-(matches Font Awesome **v5.13.1**) is also provided.
+(matches Font Awesome **v5.15.4**) is also provided.
 
 The Font Awesome fonts are designed by the
 [Font Awesome project](https://fontawesome.com/)
-and can be obtained from [here](https://fontawesome.com/how-to-use/on-the-desktop).
+and can be obtained from [here](https://fontawesome.com/v5/download).
 **NOTE**:
 All the following 3 fonts should be installed into the system:
 * Font Awesome 5 Free
@@ -67,6 +79,24 @@ i.e., the following 3 OTF files are needed:
 * `Font Awesome 5 Free-Solid-900.otf`
 * `Font Awesome 5 Brands-Regular-400.otf`
 
+</blockquote>
+
+### Installation
+
+* Linux (Debian 12/bookworm)
+
+  - Method 1: Install the `texlive-fonts-extra` package, but it pulls off
+    lots of fonts and costs ~1.6GB disk space!
+  - Method 2: Manually install the `fontawesome5` package to `~/texmf`
+    with the `tlmgr` (TeX Live Manager) tool:
+    (1) initialize the user tree: `tlmgr --usermode init-usertree`;
+    (2) install the package: `tlmgr --usermode install fontawesome5`.
+
+* Windows (MiKTeX 22.10)
+
+  MiKTeX will auto prompt for the missing package, so just confirm to
+  install it.
+
 Required Fonts
 --------------
 Besides the Font Awesome fonts, this template also requires the following
@@ -79,12 +109,14 @@ opensource fonts:
   and then extract the `IBM-Plex-Serif` and `IBM-Plex-Mono` directories
   and install them.
 
-* [Source Han Serif](https://github.com/adobe-fonts/source-han-serif)
+* [Noto Serif CJK](https://github.com/notofonts/noto-cjk)
 
-  The OTF font files for *Simplified Chinese* can be downloaded from
-  [here](https://github.com/adobe-fonts/source-han-serif/tree/release/OTF/SimplifiedChinese).
-  Just download all the weight variants:
-  ExtraLight, Light, Regular, Medium, SemiBold, Bold, Heavy.
+  Download the `NotoSerifCJKsc.zip` archive
+  (Language Specific OTFs Simplified Chinese) from the
+  [releases](https://github.com/notofonts/noto-cjk/releases) page,
+  and then install all of them.
+
+On Debian Linux, simply do `apt install fonts-ibm-plex fonts-noto-cjk`.
 
 Of course, you can use the fonts you prefer by modifying the template directly.
 However, you may need to tweak the
