@@ -1,6 +1,6 @@
 %%
-%% Copyright (c) 2020 SUN Kai
-%% Copyright (c) 2018-2019 Weitian LI
+%% Copyright (c) 2020-2023 SUN Kai
+%% Copyright (c) 2018-2023 Weitian LI
 %% Copyright (c) 2016 Christophe Roger
 %% The LaTeX Project Public License (LPPL) Version 1.3c
 %%
@@ -13,7 +13,7 @@
 %%     https://www.latextemplates.com/template/plasmati-graduate-cv
 %%
 
-\ProvidesClass{resume}[2020/06/21 v2.4.9 Resume Class]
+\ProvidesClass{resume}[2023/02/03 v2.5.1 Resume Class]
 \LoadClass{article}
 
 %%
@@ -62,7 +62,7 @@
 % NOTE: Should be set before hyperref uses it.
 \AtBeginDocument{%
   \hypersetup{%
-    pdfborder={0 0 0},  % No border around links
+    pdfborder={0 0 0},% No border around links
     pdfauthor={%
         \ifdef{\@zh}{%
           \@lastname{} \@firstname%
@@ -91,12 +91,15 @@
 % Fonts
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont{IBM Plex Serif}
-\setsansfont{IBM Plex Sans}
 \setmonofont{IBM Plex Mono}
 
-% Chinese fonts
+% Chinese setup
 \ifdef{\@zh}{
-  \setCJKmainfont{Source Han Serif SC}
+  \setCJKmainfont{Noto Serif CJK SC}
+  % Redefine '\emph' to bold style
+  % Credit: https://tex.stackexchange.com/a/227644
+  \let\emph\relax  % there's no \RedeclareTextFontCommand
+  \DeclareTextFontCommand{\emph}{\bfseries}
   \newif\ifzh\zhtrue
 }{
   \newif\ifzh\zhfalse
@@ -109,17 +112,17 @@
 \newcommand*{\homeSymbol}{\faHome}
 \newcommand*{\infoSymbol}{\faInfoCircle}
 \newcommand*{\mailSymbol}{\faEnvelope}
-\newcommand*{\mobileSymbol}{\faMobileAlt}  % \faMobilePhone is too narrow
+\newcommand*{\mobileSymbol}{\faMobile*}
 \newcommand*{\linkedinSymbol}{\faLinkedin}
-\newcommand*{\locationSymbol}{\faMapMarkerAlt}
+\newcommand*{\locationSymbol}{\faMapMarker*}
 \newcommand*{\phoneSymbol}{\faPhone}
 \newcommand*{\universitySymbol}{\faUniversity}
 \newcommand*{\blogSymbol}{\faBlog}
 
 % Color setup
-\ifdef{\@monochrome}
+\ifdef{\@monochrome}%
 {\definecolor{basecolor}{HTML}{000000}}  % black
-{\definecolor{basecolor}{HTML}{1C70D7}}  % blue
+{\definecolor{basecolor}{HTML}{1C70D7}}  % light blue
 %
 \definecolor{darkGrey}{HTML}{989898}
 %
@@ -167,7 +170,7 @@
 \newlength{\rightcolwidth}
 \ifdef{\@zh}{%
   \setlength{\leftcolwidth}{4.5em}
-}{%
+}{
   \setlength{\leftcolwidth}{5.2em}
 }
 \setlength{\rightcolwidth}{\dimexpr \textwidth - \leftcolwidth - 4\tabcolsep}
@@ -352,10 +355,10 @@
 %%
 
 % Title
-\newcommand\sectionTitle[2]{%
+\newcommand*{\sectionTitle}[2]{%
   \section{%
     \texorpdfstring%
-    {\color{accentcolor}#2\enspace \textbf{#1}}%
+    {\color{accentcolor}{\icon{#2} \textbf{#1}}}%
     {#1}%
    }
 }
@@ -382,6 +385,27 @@
 % Separator (empty space) between two entries
 \newcommand*{\separator}[1]{%
   \multicolumn{2}{c}{} \\[\dimexpr #1 - 1em]
+}
+
+%%
+%% Section: competences
+%%
+
+% \begin{competences}[width]
+\NewDocumentEnvironment{competences}{o}{
+\IfValueTF{#1}{%
+  \begin{tabular}{R{#1} L{\dimexpr \textwidth - #1 - 4\tabcolsep}}
+}{%
+  \begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}}
+    }{%
+  \end{tabular}
+}
+
+% \comptence
+%   {<name>}            % #1
+%   {<description>}     % #2
+\NewDocumentCommand{\comptence}{m m}{
+  \textbf{#1} & #2 \\
 }
 
 %%
@@ -419,28 +443,6 @@
     \IfValueTF{#2}{#2}{Now} & #5, \textbf{#4} \\*
     #1 & #3 in #6 \\
   }
-}
-
-%%
-%% Section: competences
-%%
-
-% \begin{competences}[width]
-\NewDocumentEnvironment{competences}{o}{%
-\IfValueTF{#1}{%
-  \begin{tabular}{R{#1} L{\dimexpr \textwidth - #1 - 4\tabcolsep}}
-}{%
-  \begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}
-    }
-    }{%
-  \end{tabular}
-}
-
-% \comptence
-%   {<name>}            % #1
-%   {<description>}     % #2
-\NewDocumentCommand{\comptence}{m m}{
-  \textbf{#1} & #2 \\
 }
 
 %%
@@ -507,25 +509,6 @@
 }
 
 %%
-%% Section: awards
-%%
-
-\NewDocumentEnvironment{awards}{}{%
-  \begin{longtable}{R{\leftcolwidth} | L{\rightcolwidth}}
-    }{%
-  \end{longtable}
-}
-
-% \award
-%   {<summary>}      % #1
-%   {<description>}  % #2
-\NewDocumentCommand{\award}{m m}{
-  #1 & \begin{minipage}[t]{\rightcolwidth}
-    #2
-  \end{minipage} \\*
-}
-
-%%
 %% Two-column section
 %%
 
@@ -553,7 +536,7 @@
   \textbf{#1} &
   \foreach \x in {1,...,5}{%
       \color{accentcolor!80}{%
-        \ifnumgreater{\x}{#2}{\faCircleNotched}{\faCircle}
+        \ifnumgreater{\x}{#2}{\faCircleNotch}{\faCircle}
       }
     } \enspace \\
 }
@@ -578,6 +561,25 @@
       \quad \phoneSymbol & #5                    \\
     \end{tabular}
   \end{minipage}%
+}
+
+%%
+%% Section: awards
+%%
+
+\NewDocumentEnvironment{awards}{}{%
+  \begin{longtable}{R{\leftcolwidth} | L{\rightcolwidth}}
+    }{%
+  \end{longtable}
+}
+
+% \award
+%   {<summary>}      % #1
+%   {<description>}  % #2
+\NewDocumentCommand{\award}{m m}{
+  #1 & \begin{minipage}[t]{\rightcolwidth}
+    #2
+  \end{minipage} \\*
 }
 
 \endinput
