@@ -358,7 +358,7 @@
 \newcommand*{\sectionTitle}[2]{%
   \section{%
     \texorpdfstring%
-    {\color{accentcolor}{\icon{#2} \textbf{#1}}}%
+    {\color{accentcolor}{#2 \textbf{#1}}}%
     {#1}%
    }
 }
