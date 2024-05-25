@@ -1,6 +1,6 @@
 %%
-%% Copyright (c) 2020-2023 SUN Kai
-%% Copyright (c) 2018-2023 Weitian LI
+%% Copyright (c) 2020-2024 SUN Kai
+%% Copyright (c) 2018-2024 Weitian LI
 %% Copyright (c) 2016 Christophe Roger
 %% The LaTeX Project Public License (LPPL) Version 1.3c
 %%
@@ -13,7 +13,7 @@
 %%     https://www.latextemplates.com/template/plasmati-graduate-cv
 %%
 
-\ProvidesClass{resume}[2023/02/03 v2.5.1 Resume Class]
+\ProvidesClass{resume}[2024/03/13 v2.5.3 Resume Class]
 \LoadClass{article}
 
 %%
@@ -392,11 +392,12 @@
 %%
 
 % \begin{competences}[width]
-\NewDocumentEnvironment{competences}{o}{
+\NewDocumentEnvironment{competences}{o}{%
 \IfValueTF{#1}{%
   \begin{tabular}{R{#1} L{\dimexpr \textwidth - #1 - 4\tabcolsep}}
 }{%
-  \begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}}
+  \begin{tabular}{R{\leftcolwidth} L{\rightcolwidth}}
+    }
     }{%
   \end{tabular}
 }
