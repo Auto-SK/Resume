@@ -117,6 +117,7 @@
 \newcommand*{\locationSymbol}{\faMapMarker*}
 \newcommand*{\phoneSymbol}{\faPhone}
 \newcommand*{\universitySymbol}{\faUniversity}
+\newcommand*{\companySymbol}{\faBriefcase}
 \newcommand*{\blogSymbol}{\faBlog}
 
 % Color setup
@@ -286,6 +287,8 @@
 \newcommand*{\degree}[1]{\icontext{\degreeSymbol}{#1}}
 % University
 \newcommand*{\university}[1]{\icontext{\universitySymbol}{#1}}
+% Company
+\newcommand*{\company}[1]{\icontext{\companySymbol}{#1}}
 
 % LinkedIn: \linkedin{<username>}
 \newcommand*{\linkedin}[1]{%
